@@ -1,8 +1,8 @@
 package org.example;
 
 public class CoronaDisinfector {
-    private Announcer annoncer = new ConsoleAnnouncer();
-    private Policeman policeman = new PolicemanImpl();
+    private Announcer annoncer = ObjectFactory.getInstance().createObject(Announcer.class);
+    private Policeman policeman = ObjectFactory.getInstance().createObject(Policeman.class);
 
     public void start(Room room) {
         //TODO inform all about begining desinfection
