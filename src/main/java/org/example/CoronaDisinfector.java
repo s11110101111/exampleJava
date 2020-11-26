@@ -1,8 +1,10 @@
 package org.example;
 
 public class CoronaDisinfector {
-    private Announcer annoncer = ObjectFactory.getInstance().createObject(Announcer.class);
-    private Policeman policeman = ObjectFactory.getInstance().createObject(Policeman.class);
+    @InjectByType
+    private Announcer annoncer ;
+    @InjectByType
+    private Policeman policeman;
 
     public void start(Room room) {
         //TODO inform all about begining desinfection

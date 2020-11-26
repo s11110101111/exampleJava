@@ -1,7 +1,11 @@
 package org.example;
 
+
+@Singleton
 public class RecommendatorImpl implements Recommendator {
-    @InjectProperty // name property ip default name variable alcohol or @InjectProperty("nameProperty")
+
+
+    @InjectProperty("wisky") // name property ip default name variable alcohol or @InjectProperty("nameProperty")
     private String alcohol;
 
     @Override
