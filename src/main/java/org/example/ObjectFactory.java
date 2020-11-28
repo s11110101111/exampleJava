@@ -1,25 +1,20 @@
 package org.example;
 
+import lombok.Setter;
 import lombok.SneakyThrows;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class ObjectFactory {
-    private static final ObjectFactory ourInstance = new ObjectFactory();
-    private List<ObjectConfigurator> configurators = new ArrayList<>();
-    private Config config;
     private final ApplicationContext context;
-
-    public static ObjectFactory getInstance() {
-        return ourInstance;
-    }
+    private List<ObjectConfigurator> configurators = new ArrayList<>();
 
     @SneakyThrows
     public ObjectFactory(ApplicationContext context) {
         this.context = context;
         for (Class<? extends ObjectConfigurator> aClass : context.getConfig().getScanner().getSubTypesOf(ObjectConfigurator.class)) {
             configurators.add(aClass.getDeclaredConstructor().newInstance());
-
         }
     }
 
