@@ -12,6 +12,12 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
    <dependencies>
+       <dependency>
+           <groupId>cglib</groupId>
+           <artifactId>cglib</artifactId>
+           <version>3.3.0</version>
+       </dependency>
+
        <!-- https://mvnrepository.com/artifact/cglib/cglib -->
        <dependency>
            <groupId>cglib</groupId>

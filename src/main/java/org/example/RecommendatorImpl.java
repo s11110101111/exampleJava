@@ -2,7 +2,7 @@ package org.example;
 
 
 @Singleton
-@Deprecated
+//@Deprecated
 public class RecommendatorImpl implements Recommendator {
 
     @InjectProperty("wisky") // name property ip default name variable alcohol or @InjectProperty("nameProperty")
