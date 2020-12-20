@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @ContextConfiguration(classes = MockConf.class)
 public class PredatorGameConfTest {
     @Autowired
-    private Billy billy;
+    private Commando billy;
     @Autowired
     private Predator predator;
     @Test
