@@ -5,8 +5,8 @@ import lombok.Data;
 public abstract class Commando {
 
 
-    private  boolean alive;
+    private  boolean alive= true;
     public  Commando(){
-        System.out.println(getClass().getSimpleName() + " was started " + isAlive());
+          System.out.println(getClass().getSimpleName() + " was started " + isAlive());
     }
 }
