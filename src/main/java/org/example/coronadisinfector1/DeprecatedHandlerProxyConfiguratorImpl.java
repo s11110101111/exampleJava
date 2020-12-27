@@ -1,8 +1,7 @@
-package org.example;
+package org.example.coronadisinfector1;
 
 import net.sf.cglib.proxy.Enhancer;
 
-import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;

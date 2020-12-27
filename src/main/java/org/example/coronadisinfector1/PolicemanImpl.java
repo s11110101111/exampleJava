@@ -1,4 +1,4 @@
-package org.example;
+package org.example.coronadisinfector1;
 
 public class PolicemanImpl implements Policeman {
     @InjectByType

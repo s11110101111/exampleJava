@@ -1,13 +1,10 @@
-package org.example;
+package org.example.coronadisinfector1;
 
-import lombok.Setter;
 import lombok.SneakyThrows;
 
 import javax.annotation.PostConstruct;
-import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.lang.reflect.Proxy;
 import java.util.ArrayList;
 import java.util.List;
 
