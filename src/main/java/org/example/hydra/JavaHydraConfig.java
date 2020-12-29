@@ -2,21 +2,29 @@ package org.example.hydra;
 
 import org.reflections.Reflections;
 
+import java.util.Map;
 import java.util.Set;
 
 public class JavaHydraConfig implements HydraConfig {
 
-    private Reflections scanner;
-    public JavaHydraConfig(String packageToScan){
-        this.scanner = new Reflections(packageToScan);
+    private Reflections scannerIfc;
+    private Map<Class,Class> ifc2ImplClass;
+
+    public JavaHydraConfig(String packageToScan, Map<Class, Class> ifc2ImplClass){
+        this.ifc2ImplClass = ifc2ImplClass;
+        this.scannerIfc = new Reflections(packageToScan);
     }
 
     @Override
     public <T> Class<? extends T> getImplClass(Class<T> ifc) {
-        Set<Class<? extends T>> classes = scanner.getSubTypesOf(ifc);
+        var map = ifc2ImplClass.computeIfAbsent(ifc,aClass -> {
+        Set<Class<? extends T>> classes = scannerIfc.getSubTypesOf(ifc);
         if (classes.size()!=1){
-            throw new RuntimeException(ifc + "has 0 or more  then one implements");
+            throw new RuntimeException(ifc + "has 0 or more  then one implements please update your config");
         }
         return classes.iterator().next();
+
+        });
+        return map;
     }
 }
