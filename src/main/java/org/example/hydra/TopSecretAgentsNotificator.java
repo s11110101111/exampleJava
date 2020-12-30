@@ -8,5 +8,6 @@ public class TopSecretAgentsNotificator implements Notificator {
     public void announce(String message) {
         System.out.println(channelLink + this);
         System.out.println(message + " tell: " + this.getClass().getSimpleName());
+        commander.command();
     }
 }

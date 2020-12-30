@@ -1,18 +1,25 @@
 package org.example.hydra;
 
-public class DoctorOctopus implements HydraAgent {
-    private String realName = "Dr. Otto Gunther Octavius";
-    private String name = "Doctor Octopus";
+public class DoctorOctopus extends Agent {
+{
+    this.setRealName("Dr. Otto Gunther Octavius");
+    this.setName("Doctor Octopus");
+    this.setOrganization("Hydra");
+    System.out.println("create arent" + super.getName());
+}
+
+
+
     @Override
     public boolean recruitAgent() {
-        System.out.println(name+ " Recruiting new agents." + "  "+this.getClass().getSimpleName());
+        System.out.println(getName()+ " Recruiting new agents." + "  "+this.getClass().getSimpleName());
         return false;
 
     }
 
     @Override
     public boolean sabotage() {
-        System.out.println(name+ " Sabotaged Destroy" + "  "+this.getClass().getSimpleName());
+        System.out.println(getName()+ " Sabotaged Destroy" + "  "+this.getClass().getSimpleName());
         return false;
 
     }
@@ -21,6 +28,6 @@ public class DoctorOctopus implements HydraAgent {
     public void attack() {
        recruitAgent();
        sabotage();
-       System.out.println(name+ " Bang Bang Im Kill all." + "  "+this.getClass().getSimpleName());
+       System.out.println(getName()+ " Bang Bang Im Kill all." + "  "+this.getClass().getSimpleName());
     }
 }

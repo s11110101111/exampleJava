@@ -1,12 +1,14 @@
-package org.example.hydra;
+package org.example.hydra.configurator;
 
+import lombok.Getter;
+import org.example.hydra.configurator.HydraConfig;
 import org.reflections.Reflections;
 
 import java.util.Map;
 import java.util.Set;
 
 public class JavaHydraConfig implements HydraConfig {
-
+    @Getter
     private Reflections scannerIfc;
     private Map<Class,Class> ifc2ImplClass;
 

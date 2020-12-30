@@ -1,7 +1,9 @@
 package org.example.hydra;
 
-public class HydraCommanderImpl implements HydraCommander {
+import org.example.hydra.configurator.InjectProperty;
 
+public class HydraCommanderImpl implements HydraCommander {
+    @InjectProperty("superWeapon")
     private String weapon;
 
     @Override
