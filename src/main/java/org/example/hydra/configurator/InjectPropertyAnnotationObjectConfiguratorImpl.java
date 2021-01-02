@@ -33,7 +33,7 @@ public class InjectPropertyAnnotationObjectConfiguratorImpl implements ObjectCon
 
                 field.setAccessible(true);
                 if (int.class.isAssignableFrom(field.getType())){
-                    System.out.println( "Принт Тип поля" + field.getClass().getSimpleName());
+                    System.out.println( "Принт Тип поля  - " + field.getType());
                     field.set(t, Integer.valueOf(value));
 
                 }else{
