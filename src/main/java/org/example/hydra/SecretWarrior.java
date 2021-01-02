@@ -1,6 +1,8 @@
 package org.example.hydra;
 
-public class SecretWarrior extends Agent implements HydraAgent{
+import org.example.hydra.weapon.Gun;
+
+public class SecretWarrior extends Agent implements HydraAgent {
 
     {
         this.setHealth(400);
@@ -9,7 +11,15 @@ public class SecretWarrior extends Agent implements HydraAgent{
         this.setOrganization("Hydra");
         System.out.println("create arent" + super.getName());
     }
-    private  Weapon weapon;
+
+    private Weapon weapon = HydraObjectFactory.getInstance().createObject(Weapon.class);;
+
+    SecretWarrior() {
+    }
+
+    SecretWarrior(Weapon weapon) {
+        System.out.println("create arent with weapon " + super.getName());
+    }
 
     @Override
     public boolean recruitAgent() {
@@ -25,10 +35,9 @@ public class SecretWarrior extends Agent implements HydraAgent{
 
     @Override
     public void attack(TargetOfAttack target) {
-        recruitAgent();
         sabotage();
-       weapon.shoot(target);
-        target.setRemainderOfHealth(target.getRemainderOfHealth() - 100);
+        weapon.shoot(target);
+
 
         System.out.println(getName() + " Bang Bang Im Kill all." + "  " + this.getClass().getSimpleName());
         System.out.println(getName() + " My health -" + "  " + getRemainderOfHealth());

@@ -4,6 +4,8 @@ import lombok.SneakyThrows;
 import org.example.hydra.configurator.HydraConfig;
 import org.example.hydra.configurator.JavaHydraConfig;
 import org.example.hydra.configurator.ObjectConfigurator;
+import org.example.hydra.weapon.Gun;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -20,7 +22,11 @@ public class HydraObjectFactory {
 
     @SneakyThrows
     private HydraObjectFactory() {
-        config = new JavaHydraConfig("org.example.hydra", new HashMap<>(Map.of(HydraAgent.class, SecretWarrior.class)));
+        config = new JavaHydraConfig("org.example.hydra",
+                new HashMap<>(Map.of(
+                        HydraAgent.class, SecretWarrior.class,
+                        Weapon.class, Gun.class
+                )));
         for (Class<? extends ObjectConfigurator> aClass : config.getScannerIfc().getSubTypesOf(ObjectConfigurator.class)) {
             configurators.add(aClass.getDeclaredConstructor().newInstance());
         }

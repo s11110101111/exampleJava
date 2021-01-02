@@ -29,9 +29,17 @@ public class InjectPropertyAnnotationObjectConfiguratorImpl implements ObjectCon
             InjectProperty annotation = field.getAnnotation(InjectProperty.class);
             if (annotation != null) {
                 //properties by field name or annotation value if there's;
-                String value = annotation.value().isEmpty() ? propertiesMap.get(field.getName()) : propertiesMap.get(annotation.value());
+             String value =  annotation.value().isEmpty() ? propertiesMap.get(field.getName()) : propertiesMap.get(annotation.value());
+
                 field.setAccessible(true);
+                if (int.class.isAssignableFrom(field.getType())){
+                    System.out.println( "Принт Тип поля" + field.getClass().getSimpleName());
+                    field.set(t, Integer.valueOf(value));
+
+                }else{
                 field.set(t, value);
+
+                }
 
             }
 

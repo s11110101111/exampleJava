@@ -10,6 +10,7 @@ public class ProjectSHIELD implements TargetOfAttack {
 
     @Override
     public void setRemainderOfHealth(int health) {
-       this.health= health;
+        this.health= health < 0 ? 0 : health;
+
     }
 }
