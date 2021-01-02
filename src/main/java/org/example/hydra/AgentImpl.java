@@ -8,18 +8,15 @@ public class AgentImpl extends Agent {
         this.setOrganization("SHIELD");
         System.out.println("create arent" + super.getName());
     }
+
+
     @Override
-    public boolean recruitAgent() {
-        return false;
+    public int getRemainderOfHealth() {
+        return 0;
     }
 
     @Override
-    public boolean sabotage() {
-        return false;
-    }
-
-    @Override
-    public void attack() {
+    public void setRemainderOfHealth(int health) {
 
     }
 }

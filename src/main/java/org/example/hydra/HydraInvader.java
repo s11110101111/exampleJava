@@ -20,8 +20,10 @@ public class HydraInvader {
     }
 
     private void attack(TargetOfAttack target) {
+        hydraAgent.attack(target);
+
         System.out.println("Hi Gydra! Chpok!! Chpok! Bang! Bang! attack the " + target
-                .getClass().getSimpleName()+ "  " + this.getClass().getSimpleName());
+                .getClass().getSimpleName() + "\n remainder of health " + target.getRemainderOfHealth() +"  "+ this.getClass().getSimpleName());
     }
 
 }
