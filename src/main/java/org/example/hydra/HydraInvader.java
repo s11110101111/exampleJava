@@ -10,7 +10,7 @@ import org.example.hydra.configurator.InjectProperty;
 public class HydraInvader {
     @InjectByType
     private Notificator topSecretAgentsNotificator ;
-    @InjectProperty
+    @InjectByType
     private HydraAgent hydraAgent;
 
     public void start(TargetOfAttack target) {

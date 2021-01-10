@@ -1,21 +1,23 @@
 package org.example.hydra.configurator;
 
 import lombok.Getter;
-import org.example.hydra.configurator.HydraConfig;
 import org.reflections.Reflections;
-
 import java.util.Map;
 import java.util.Set;
 
 public class JavaHydraConfig implements HydraConfig {
     @Getter
     private Reflections scannerIfc;
+
     private Map<Class,Class> ifc2ImplClass;
 
     public JavaHydraConfig(String packageToScan, Map<Class, Class> ifc2ImplClass){
         this.ifc2ImplClass = ifc2ImplClass;
         this.scannerIfc = new Reflections(packageToScan);
+
     }
+
+
 
     @Override
     public <T> Class<? extends T> getImplClass(Class<T> ifc) {
@@ -31,4 +33,6 @@ public class JavaHydraConfig implements HydraConfig {
         });
         return map;
     }
+
+
 }

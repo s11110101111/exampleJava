@@ -18,6 +18,7 @@ public class HydraObjectFactory {
     private static HydraObjectFactory ourInstance = new HydraObjectFactory();
     private HydraConfig config;
     private List<ObjectConfigurator> configurators = new ArrayList<>();
+
     public static HydraObjectFactory getInstance() {
         return ourInstance;
     }
@@ -31,7 +32,7 @@ public class HydraObjectFactory {
                 )));
         for (Class<? extends ObjectConfigurator> aClass : config.getScannerIfc().getSubTypesOf(ObjectConfigurator.class)) {
             configurators.add(aClass.getDeclaredConstructor().newInstance());
-            System.out.println(ColorANSI.ANSI_YELLOW.getColor() +">> config>> add - " +aClass.getSimpleName() + ColorANSI.ANSI_RESET.getColor());
+            System.out.println(ColorANSI.ANSI_YELLOW.getColor() + ">> config>> add - " + aClass.getSimpleName() + ColorANSI.ANSI_RESET.getColor());
         }
     }
 
@@ -44,7 +45,7 @@ public class HydraObjectFactory {
         T t = implClass.getDeclaredConstructor().newInstance();
         //todo something with t
 
-        configurators.forEach(conf -> conf.configure(t) );
-                return t;
+        configurators.forEach(conf -> conf.configure(t));
+        return t;
     }
 }
