@@ -1,10 +1,12 @@
 package org.example.hydra;
 
 import lombok.SneakyThrows;
+import org.example.hydra.configurator.ColorANSI;
 import org.example.hydra.configurator.HydraConfig;
 import org.example.hydra.configurator.JavaHydraConfig;
 import org.example.hydra.configurator.ObjectConfigurator;
 import org.example.hydra.weapon.Gun;
+import org.example.hydra.weapon.PlazmaGun;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,10 +27,11 @@ public class HydraObjectFactory {
         config = new JavaHydraConfig("org.example.hydra",
                 new HashMap<>(Map.of(
                         HydraAgent.class, SecretWarrior.class,
-                        Weapon.class, Gun.class
+                        Weapon.class, PlazmaGun.class
                 )));
         for (Class<? extends ObjectConfigurator> aClass : config.getScannerIfc().getSubTypesOf(ObjectConfigurator.class)) {
             configurators.add(aClass.getDeclaredConstructor().newInstance());
+            System.out.println(ColorANSI.ANSI_YELLOW.getColor() +">> config>> add - " +aClass.getSimpleName() + ColorANSI.ANSI_RESET.getColor());
         }
     }
 

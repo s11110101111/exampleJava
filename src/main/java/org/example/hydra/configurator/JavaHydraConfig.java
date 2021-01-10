@@ -19,10 +19,12 @@ public class JavaHydraConfig implements HydraConfig {
 
     @Override
     public <T> Class<? extends T> getImplClass(Class<T> ifc) {
+
         var map = ifc2ImplClass.computeIfAbsent(ifc,aClass -> {
         Set<Class<? extends T>> classes = scannerIfc.getSubTypesOf(ifc);
+
         if (classes.size()!=1){
-            throw new RuntimeException(ifc + "has 0 or more  then one implements please update your config");
+            throw new RuntimeException(ifc + " has 0 or more  then one implements please update your config");
         }
         return classes.iterator().next();
 
