@@ -2,7 +2,6 @@ package org.example.hydra;
 
 import org.example.hydra.configurator.ColorANSI;
 import org.example.hydra.configurator.InjectByType;
-import org.example.hydra.weapon.Gun;
 
 public class SecretWarrior extends Agent implements HydraAgent {
 
@@ -11,8 +10,8 @@ public class SecretWarrior extends Agent implements HydraAgent {
         this.setRealName("Tony Masters");
         this.setName("Taskmaster");
         this.setOrganization("Hydra");
-        System.out.println(ColorANSI.ANSI_RED.fillColor(
-                "create agent") + super.getName());
+        System.out.println(ColorANSI.YELLOW.fillColor(
+                "Created agent ") + super.getName());
     }
 
     @InjectByType
@@ -22,14 +21,14 @@ public class SecretWarrior extends Agent implements HydraAgent {
     }
 
     SecretWarrior(Weapon weapon) {
-        System.out.println(ColorANSI.ANSI_RED.fillColor(
+        System.out.println(ColorANSI.RED.fillColor(
                 "create arent with weapon ") + super.getName());
     }
 
     @Override
     public boolean recruitAgent() {
         System.out.println(
-                getName() + ColorANSI.ANSI_RED.fillColor(" Recruiting new agents.") + "  " +
+                getName() + ColorANSI.RED.fillColor(" Recruiting new agents.") + "  " +
                         this.getClass().getSimpleName());
         return false;
     }
@@ -37,7 +36,7 @@ public class SecretWarrior extends Agent implements HydraAgent {
     @Override
     public boolean sabotage() {
         System.out.println(
-                getName() + ColorANSI.ANSI_RED.fillColor(" Sabotaged Destroy") + "  " +
+                getName() + ColorANSI.RED.fillColor(" Sabotaged Destroy") + "  " +
                         this.getClass().getSimpleName());
         return false;
     }
@@ -48,10 +47,10 @@ public class SecretWarrior extends Agent implements HydraAgent {
         weapon.shoot(target);
 
 
-        System.out.println(getName() + ColorANSI.ANSI_RED.fillColor(
+        System.out.println(getName() + ColorANSI.RED.fillColor(
                 " Bang Bang Im Kill all. ") +
                 this.getClass().getSimpleName());
-        System.out.println(getName() + ColorANSI.ANSI_RED.fillColor(" My health -)" + "  " +
+        System.out.println(getName() + ColorANSI.RED.fillColor(" My health -)" + "  " +
                 getRemainderOfHealth()));
     }
 

@@ -29,10 +29,9 @@ public class HydraInvader {
     private void attack(TargetOfAttack target) {
         hydraAgent.attack(target);
 
-        System.out.println(ColorANSI.ANSI_RED.getColor() +"Hi Gydra! Chpok!! Chpok! Bang! Bang! attack the '" + target
+        System.out.println(ColorANSI.RED.fillColor("Hi Gydra! Chpok!! Chpok! Bang! Bang! attack the '") + target
                 .getClass().getSimpleName() + "' \nTarget's Remaining health = " +
-                target.getRemainderOfHealth() +"  "+ this.getClass().getSimpleName() +
-                ColorANSI.ANSI_RESET.getColor());
+                target.getRemainderOfHealth() +"  "+ this.getClass().getSimpleName() );
     }
 
 }

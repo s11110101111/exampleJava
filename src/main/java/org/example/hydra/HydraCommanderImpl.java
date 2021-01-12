@@ -11,10 +11,10 @@ public class HydraCommanderImpl implements HydraCommander {
 
     @Override
     public void command() {
-        System.out.println(ColorANSI.ANSI_GREEN.getColor() +
+        System.out.println(ColorANSI.GREEN.getColor() +
                 "All agents arm themself with " +
                 weapon + "  =>" +
                 this.getClass().getSimpleName()+
-                ColorANSI.ANSI_RESET.getColor());
+                ColorANSI.RESET.getColor());
     }
 }

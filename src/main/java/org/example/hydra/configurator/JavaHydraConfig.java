@@ -17,8 +17,6 @@ public class JavaHydraConfig implements HydraConfig {
 
     }
 
-
-
     @Override
     public <T> Class<? extends T> getImplClass(Class<T> ifc) {
 

@@ -8,20 +8,20 @@ public class DoctorOctopus extends Agent implements HydraAgent{
         this.setRealName("Dr. Otto Gunther Octavius");
         this.setName("Doctor Octopus");
         this.setOrganization("Hydra");
-        System.out.println(ColorANSI.ANSI_CYAN.fillColor("create arent") + super.getName());
+        System.out.println(ColorANSI.CYAN.fillColor("Created arent ") + super.getName());
     }
 
 
     @Override
     public boolean recruitAgent() {
-        System.out.println(getName() + ColorANSI.ANSI_CYAN.fillColor(" Recruiting new agents.") + "  " + this.getClass().getSimpleName());
+        System.out.println(getName() + ColorANSI.CYAN.fillColor(" Recruiting new agents.") + "  " + this.getClass().getSimpleName());
         return false;
 
     }
 
     @Override
     public boolean sabotage() {
-        System.out.println(getName() + ColorANSI.ANSI_CYAN.fillColor(" Sabotaged Destroy") + "  " + this.getClass().getSimpleName());
+        System.out.println(getName() + ColorANSI.CYAN.fillColor(" Sabotaged Destroy") + "  " + this.getClass().getSimpleName());
         return false;
 
     }
@@ -30,8 +30,8 @@ public class DoctorOctopus extends Agent implements HydraAgent{
     public void attack(TargetOfAttack target) {
         recruitAgent();
         sabotage();
-        System.out.println(getName() + ColorANSI.ANSI_CYAN.fillColor(" Bang Bang Im Kill all.") + "  " + this.getClass().getSimpleName());
-        System.out.println(getName() + ColorANSI.ANSI_CYAN.fillColor(" My health -") + "  " + getRemainderOfHealth());
+        System.out.println(getName() + ColorANSI.CYAN.fillColor(" Bang Bang Im Kill all.") + "  " + this.getClass().getSimpleName());
+        System.out.println(getName() + ColorANSI.CYAN.fillColor(" My health -") + "  " + getRemainderOfHealth());
     }
 
     @Override

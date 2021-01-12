@@ -11,11 +11,12 @@ public class InjectByTypeAnnotationObjectConfiguratorImpl implements ObjectConfi
 
     @Override
     @SneakyThrows
-    public void configure(Object t) {
+    public void configure(Object t,ApplicationContextHydra context) {
         for (Field field : t.getClass().getDeclaredFields()) {
             if (field.isAnnotationPresent(InjectByType.class)) {
                 field.setAccessible(true);
-                Object object = HydraObjectFactory.getInstance().createObject(field.getType());
+
+                Object object = context.getObject(field.getType());
                 field.set(t, object);
 
             }

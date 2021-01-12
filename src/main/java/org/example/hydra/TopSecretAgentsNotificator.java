@@ -4,7 +4,7 @@ import org.example.hydra.configurator.ColorANSI;
 import org.example.hydra.configurator.InjectByType;
 
 public class TopSecretAgentsNotificator implements Notificator {
-    private String channelLink = ColorANSI.ANSI_PURPLE.fillColor("$$-Top secret-$$ space channel - ")
+    private String channelLink = ColorANSI.PURPLE.fillColor("$$-Top secret-$$ space channel - ")
             ;
     @InjectByType
     private  HydraCommander commander;
