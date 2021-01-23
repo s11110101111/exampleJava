@@ -27,12 +27,16 @@ public class SecretWarrior extends Agent implements HydraAgent {
         System.out.println(ColorANSI.RED.fillColor(
                 "create arent with weapon ") + " i've weapon - " + weapon);
         // todo добавим доп настройки оружия после сождания
+        setWeaponDamageBonus(2);
+    }
+
+    private void setWeaponDamageBonus(int bonus) throws IllegalAccessException {
         for (Field fld : weapon.getClass().getDeclaredFields()) {
-            if(fld.getName().equals("damage")){
+            if (fld.getName().equals("damage")) {
                 fld.setAccessible(true);
-                 int value = fld.getInt(weapon);
-                 value *=2;
-                 fld.set(weapon,value);
+                int value = fld.getInt(weapon);
+                value *= bonus;
+                fld.set(weapon, value);
             }
         }
     }
