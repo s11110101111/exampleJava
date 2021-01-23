@@ -5,5 +5,6 @@ import static java.lang.annotation.RetentionPolicy.*;
 
 @Retention(RUNTIME)
 public @interface InjectProperty {
-    String value() default "";
+//int value()default 10;
+        String value() default "";
 }

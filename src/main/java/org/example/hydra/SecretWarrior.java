@@ -1,7 +1,11 @@
 package org.example.hydra;
 
+import lombok.SneakyThrows;
 import org.example.hydra.configurator.ColorANSI;
 import org.example.hydra.configurator.InjectByType;
+
+import javax.annotation.PostConstruct;
+import java.lang.reflect.Field;
 
 public class SecretWarrior extends Agent implements HydraAgent {
 
@@ -14,22 +18,36 @@ public class SecretWarrior extends Agent implements HydraAgent {
                 "Created agent ") + super.getName());
     }
 
-    @InjectByType
+    @InjectByType()
     private Weapon weapon;
 
-    SecretWarrior() {
+    @PostConstruct
+    @SneakyThrows
+    public void init() {
+        System.out.println(ColorANSI.RED.fillColor(
+                "create arent with weapon ") + " i've weapon - " + weapon);
+        // todo добавим доп настройки оружия после сождания
+        for (Field fld : weapon.getClass().getDeclaredFields()) {
+            if(fld.getName().equals("damage")){
+                fld.setAccessible(true);
+                 int value = fld.getInt(weapon);
+                 value *=2;
+                 fld.set(weapon,value);
+            }
+        }
     }
 
-    SecretWarrior(Weapon weapon) {
-        System.out.println(ColorANSI.RED.fillColor(
-                "create arent with weapon ") + super.getName());
-    }
+//    SecretWarrior(Weapon weapon) {
+//        System.out.println(ColorANSI.RED.fillColor(
+//                "create arent with weapon ") + super.getName() +" $$ " + weapon.getClass());
+//    }
 
     @Override
     public boolean recruitAgent() {
+
         System.out.println(
                 getName() + ColorANSI.RED.fillColor(" Recruiting new agents.") + "  " +
-                        this.getClass().getSimpleName());
+                        this.getClass().getSimpleName() + " i've weapon - " + weapon.getClass());
         return false;
     }
 

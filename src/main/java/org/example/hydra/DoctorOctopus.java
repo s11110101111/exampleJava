@@ -10,7 +10,7 @@ public class DoctorOctopus extends Agent implements HydraAgent{
         this.setOrganization("Hydra");
         System.out.println(ColorANSI.CYAN.fillColor("Created arent ") + super.getName());
     }
-
+//нет оружия
 
     @Override
     public boolean recruitAgent() {

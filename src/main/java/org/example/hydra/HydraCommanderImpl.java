@@ -6,6 +6,9 @@ import org.example.hydra.configurator.Odino4ka;
 
 @Odino4ka
 public class HydraCommanderImpl implements HydraCommander {
+    {
+        System.out.println("Create HydraComander impl");
+    }
     @InjectProperty("superWeapon")
     private String weapon;
 

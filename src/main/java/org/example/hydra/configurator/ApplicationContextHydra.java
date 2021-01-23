@@ -2,7 +2,10 @@ package org.example.hydra.configurator;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.example.coronadisinfector1.InjectProperty;
 import org.example.hydra.HydraObjectFactory;
+
+import java.lang.annotation.Annotation;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -36,6 +39,7 @@ public class ApplicationContextHydra {
             T t= factory.createObject(implClass);
         // проверим если класс анотирован для кеширования (синглтон) put in cache
 if (implClass.isAnnotationPresent(Odino4ka.class)){
+
     cachOdino4kas.put(type,t);
 }
         return t;

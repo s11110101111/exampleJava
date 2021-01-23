@@ -11,7 +11,7 @@ public class Main {
     public static void main(String[] args) {
 
         ApplicationContextHydra contextHydra = HydraApplication.run("org.example.hydra", new HashMap<>(Map.of(
-                HydraAgent.class, DoctorOctopus.class, Weapon.class, PlazmaGun.class)));
+                HydraAgent.class, SecretWarrior.class, Weapon.class, PlazmaGun.class)));
         HydraInvader hydra = contextHydra.getObject(HydraInvader.class);
         hydra.start(new ProjectSHIELD());
 
